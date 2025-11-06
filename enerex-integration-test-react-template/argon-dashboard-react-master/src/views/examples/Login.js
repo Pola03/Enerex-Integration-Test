@@ -90,7 +90,10 @@ const Login = () => {
       
       
       // 401 indicates invalid credentials
-      if (err.response && err.response.status === 401) {
+      if (!err.response) {
+        setAlertMessage("🌐 Unable to connect to the server. Please check your connection.");
+      }
+      else if (err.response.status === 401) {
         setAlertMessage("❗ Invalid credentials. Please check your email and password.");
       } else {
         setAlertMessage("🛑 Connection error with the server. Please try again.");

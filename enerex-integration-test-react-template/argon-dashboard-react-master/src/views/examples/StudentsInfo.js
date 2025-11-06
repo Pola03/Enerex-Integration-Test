@@ -166,7 +166,7 @@ const StudentsInfo = () => {
       setStudents(response.data);
 
     } catch (err) {
-        setAlertMsg(getErrorMsgByCode(err.response.status));
+        setAlertMsg(err.response?getErrorMsgByCode(err.response.status):"🌐 Unable to connect to the server. Please check your connection.");
         setIsError(true);
         setAlertVisible(true);
     } 
@@ -188,7 +188,7 @@ const StudentsInfo = () => {
       setAlertVisible(true);
 
     } catch (err) {
-        setAlertMsg(getErrorMsgByCode(err.response.status));
+        setAlertMsg(err.response?getErrorMsgByCode(err.response.status):"🌐 Unable to connect to the server. Please check your connection.");
         setIsError(true);
         setAlertVisible(true);
     }
@@ -212,7 +212,7 @@ const StudentsInfo = () => {
       setAlertVisible(true);
 
     } catch (err) {
-      setAlertMsg(getErrorMsgByCode(err.response.status));
+      setAlertMsg(err.response?getErrorMsgByCode(err.response.status):"🌐 Unable to connect to the server. Please check your connection.");
       setIsError(true);
       setAlertVisible(true);
       
@@ -230,7 +230,7 @@ const StudentsInfo = () => {
       setAlertVisible(true);
 
     } catch (err) {
-        setAlertMsg(getErrorMsgByCode(err.response.status));
+        setAlertMsg(err.response?getErrorMsgByCode(err.response.status):"🌐 Unable to connect to the server. Please check your connection.");
         setIsError(true);
         setAlertVisible(true);
     } 
