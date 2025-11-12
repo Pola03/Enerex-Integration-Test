@@ -139,7 +139,7 @@ const StudentsInfo = () => {
       }
 
       setDisplayStudents( filteredStudents);
-      setCurrentPage(0);
+      setCurrentPage(Math.max(0,Math.min(currentPage,numberOfPages-1)));
     }, 500)
 
     return () => clearTimeout(timer)
@@ -152,7 +152,7 @@ const StudentsInfo = () => {
     {
       const {name, asc} = fieldToOrder;
       setDisplayStudents(prev => [...prev].sort((a,b) => asc? (a[name]<b[name]) : (a[name]>b[name])))
-      setCurrentPage(0);
+      setCurrentPage(Math.max(0,Math.min(currentPage,numberOfPages-1)));
     }
 
   },[fieldToOrder])
@@ -175,6 +175,7 @@ const StudentsInfo = () => {
   // When the view is charged, the students are fetched.
   useEffect(() => {
     fetchStudents();
+    setCurrentPage(0);
   }, []);
 
   // Handles deleting a student and updates the UI state accordingly.
